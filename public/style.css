@@ -11,6 +11,7 @@ h1 {
     margin-bottom: 50px;
 }
 
+
 p {
     color: #FFFFFA;
     font-family: 'Didact Gothic', sans-serif;
@@ -52,3 +53,26 @@ button:hover{
     color: #fff;
     background-color: #44A1A0;
 }
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    p {
+        color: #FFFFFA;
+        font-family: 'Didact Gothic', sans-serif;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 30vw;
+        
+        margin: default;
+        padding: default;
+        position: default;
+        top: default;    
+        left: default;
+        transform: default;
+        z-index: default;
+    }
+    
+  }

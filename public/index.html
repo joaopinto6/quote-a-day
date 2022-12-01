@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jamstack Explorers - Up and Running with Serverless Functions</title>
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.cdnfonts.com/css/elegant-2" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
   </head>
   <body>
-    <h1>Up and Running with Serverless Functions</h1>
-    <button id="fetch-btn">Fetch</button>
-    <p id="response-output">Response Placeholder</p>
+    <h1>Random Quote Generator from API</h1>
+    <button id="fetch-quotes-btn">Fetch Quotes</button>
+    <p id="response-output">"Working hard for something we don't care about is called stress: Working hard for something we love is called passion."</p>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const fetchBtn = document.getElementById('fetch-btn')
+        const fetchQuotesBtn = document.getElementById('fetch-quotes-btn')
         const responseText = document.getElementById('response-output')
 
-        fetchBtn.addEventListener('click', () => {
-          responseText.innerText = 'Static Text Replacement'
+        fetchQuotesBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/quotes').then(response => response.json())
+          responseText.innerText = JSON.stringify(response[0].q)
         })
       })
     </script>
